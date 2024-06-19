@@ -26,7 +26,7 @@ composer install
 
 ## Endpoints
 
-Configured in the **src/Controllers/RouterController.php**
+Configured in the **/src/Controllers/RouterController.php**
 
 ## License
 
