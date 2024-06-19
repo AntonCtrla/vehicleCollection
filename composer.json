@@ -1,0 +1,29 @@
+{
+  "name": "vehiclecollection/application",
+  "description": "Application to collect, store, and analyze vehicle data.",
+  "type": "project",
+  "require": {
+    "datatables/datatables": "^1.10",
+    "guzzlehttp/guzzle": "^7.8",
+    "nyholm/psr7": "^1.8",
+    "nyholm/psr7-server": "^1.1",
+    "vlucas/phpdotenv": "^5.6",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "VehicleCollection\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "ext-dom": "*"
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}
