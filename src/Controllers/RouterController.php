@@ -25,7 +25,7 @@ class RouterController
         $viewTable = new View('table');
 
         $vehicleModel = new VehicleModel($pdo);
-        $collectModel = new CollectModel($pdo, $vehicleModel);
+        $collectModel = new CollectModel();
 
         $homeModel = new HomeModel($pdo);
 
@@ -95,7 +95,16 @@ class RouterController
     public function main()
     {
         $this->get('/', ['homeController', 'index']);
+
+
+        $this->get('/fibo', ['homeController','fibonacci']);
+        $this->get('/summ', ['homeController','summ']);
+        $this->post('/fibo', ['homeController','fibonacci']);
+        $this->post('/summ', ['homeController','summ']);
+
+
         $this->get('/collect', ['collectController', 'showForm']);
+
         $this->post('/collectids', ['collectController', 'collectIDData']);
         $this->post('/savevehicle', ['collectController', 'collectVehicleData']);
         $this->get('/table', ['tableController', 'showTable']);

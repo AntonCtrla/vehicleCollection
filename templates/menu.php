@@ -14,6 +14,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/table">Table</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/fibo">Fibonacci</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/summ">Summ</a>
+            </li>
         </ul>
     </div>
 </nav>
