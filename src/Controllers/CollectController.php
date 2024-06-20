@@ -2,10 +2,9 @@
 
 namespace VehicleCollection\Controllers;
 
-use VehicleCollection\Models\VehicleModel;
-use VehicleCollection\Models\VehicleModelInterface;
-use VehicleCollection\View;
 use VehicleCollection\Models\CollectModel;
+use VehicleCollection\Models\VehicleModel;
+use VehicleCollection\Views\View;
 
 class CollectController
 {

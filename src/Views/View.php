@@ -1,6 +1,6 @@
 <?php
 
-namespace VehicleCollection;
+namespace VehicleCollection\Views;
 
 class View
 {
@@ -26,8 +26,8 @@ class View
     {
         extract($this->data);
         ob_start();
-        if (file_exists(__DIR__ . '/../templates/' . $template . '.php')) {
-            include __DIR__ . '/../templates/' . $template . '.php';
+        if (file_exists(__DIR__ . '/templates/' . $template . '.php')) {
+            include __DIR__ . '/templates/' . $template . '.php';
         } else {
             echo '<b class="text-danger">Template <i>'.$template.'</i> not exists </b>';
         }
@@ -40,10 +40,10 @@ class View
         extract($this->data);
 
         ob_start();
-        include __DIR__ . '/../templates/' . $this->header . '.php';
-        include __DIR__ . '/../templates/' . $this->menu . '.php';
-        include __DIR__ . '/../templates/' . $this->template . '.php';
-        include __DIR__ . '/../templates/' . $this->footer . '.php';
+        include __DIR__ . '/templates/' . $this->header . '.php';
+        include __DIR__ . '/templates/' . $this->menu . '.php';
+        include __DIR__ . '/templates/' . $this->template . '.php';
+        include __DIR__ . '/templates/' . $this->footer . '.php';
         $content = ob_get_clean();
 
         echo $content;

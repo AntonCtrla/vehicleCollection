@@ -3,7 +3,7 @@
 namespace VehicleCollection\Controllers;
 
 use VehicleCollection\Models\HomeModel;
-use VehicleCollection\View;
+use VehicleCollection\Views\View;
 
 class HomeController
 {

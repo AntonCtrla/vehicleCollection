@@ -2,11 +2,11 @@
 
 namespace VehicleCollection\Controllers;
 
-use VehicleCollection\Models\Database;
 use VehicleCollection\Models\CollectModel;
+use VehicleCollection\Models\Database;
 use VehicleCollection\Models\HomeModel;
 use VehicleCollection\Models\VehicleModel;
-use VehicleCollection\View;
+use VehicleCollection\Views\View;
 
 class RouterController
 {

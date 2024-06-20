@@ -3,8 +3,8 @@
 namespace VehicleCollection\Controllers;
 
 use VehicleCollection\Models\VehicleModel;
-use VehicleCollection\View;
 use VehicleCollection\Models\VehicleModelInterface;
+use VehicleCollection\Views\View;
 
 class TableController
 {
