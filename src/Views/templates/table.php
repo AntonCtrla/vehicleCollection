@@ -1,3 +1,4 @@
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <div class="container mt-5">
     <div class="row">
         <div class="col-12">

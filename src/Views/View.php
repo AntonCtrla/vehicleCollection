@@ -4,11 +4,11 @@ namespace VehicleCollection\Views;
 
 class View
 {
-    protected $data = [];
-    protected $template;
-    protected $header = 'header';
-    protected $menu = 'menu';
-    protected $footer = 'footer';
+    protected array $data = [];
+    protected string $template;
+    protected string $header = 'header';
+    protected string $menu = 'menu';
+    protected string $footer = 'footer';
 
 
     public function __construct(string $template)
@@ -17,12 +17,12 @@ class View
 
     }
 
-    public function set($key, $value)
+    public function set($key, $value): void
     {
         $this->data[$key] = $value;
     }
 
-    public function renderTemplateByName(string $template)
+    public function renderTemplateByName(string $template): false|string
     {
         extract($this->data);
         ob_start();
@@ -31,11 +31,10 @@ class View
         } else {
             echo '<b class="text-danger">Template <i>'.$template.'</i> not exists </b>';
         }
-        $content = ob_get_clean();
-        return $content;
+        return ob_get_clean();
     }
 
-    public function render()
+    public function render(): void
     {
         extract($this->data);
 
@@ -44,9 +43,7 @@ class View
         include __DIR__ . '/templates/' . $this->menu . '.php';
         include __DIR__ . '/templates/' . $this->template . '.php';
         include __DIR__ . '/templates/' . $this->footer . '.php';
-        $content = ob_get_clean();
-
-        echo $content;
+        echo ob_get_clean();
     }
 
 }

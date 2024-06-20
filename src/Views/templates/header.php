@@ -10,7 +10,7 @@
 
     <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script async src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
 
     <link href="./css/style.css" rel="stylesheet"/>
 </head>

@@ -6,8 +6,8 @@ use PDO;
 
 class Database
 {
-    private static $instance = null;
-    private $pdo;
+    private static Database|null $instance = null;
+    private PDO $pdo;
 
     private function __construct()
     {
@@ -31,7 +31,7 @@ class Database
         }
     }
 
-    public static function getInstance()
+    public static function getInstance(): ?Database
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -39,7 +39,7 @@ class Database
         return self::$instance;
     }
 
-    public function getPdo()
+    public function getPdo():PDO
     {
         return $this->pdo;
     }

@@ -13,19 +13,15 @@ class HomeModel
         $this->pdo = $pdo;
     }
 
-    public function runSumm($a, $b) {
+    public function runSumm($a, $b): string {
         $lengthA = strlen($a);
         $lengthB = strlen($b);
 
         $sum = 0;
         $maxLength = max($lengthA, $lengthB);
 
-        // echo 'max='.$maxLength . "".PHP_EOL;
-
         $a = str_pad($a, $maxLength,"0", STR_PAD_LEFT);
         $b = str_pad($b, $maxLength,"0", STR_PAD_LEFT);
-
-        // echo 'a='.$a . ' b=' . $b . "".PHP_EOL;
 
         $result = '';
         $division = 0;
@@ -46,7 +42,7 @@ class HomeModel
         $trace .= __FUNCTION__.': '.PHP_EOL;
 
         $res = [];
-        $a = 0;
+
         for ($i=0; $i<$n; $i++) {
             // working around the limits
             if (($res[$i-1]??0) >= PHP_INT_MAX) { return 'Error max int: '.PHP_INT_MAX.''; }
@@ -66,8 +62,6 @@ class HomeModel
 
         }
         $trace .= PHP_EOL;
-
-//        echo $trace;
 
         return array_pop($res);
     }

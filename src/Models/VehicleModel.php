@@ -72,7 +72,7 @@ class VehicleModel implements VehicleModelInterface
 
     }
 
-    public function getAllVehicles()
+    public function getAllVehicles(): array|false
     {
         $db = $this->pdo->query("
             SELECT v.id, b.name AS brand, c.name AS country, f.name AS fuel, g.name AS gearbox, v.power, v.mileage
@@ -85,7 +85,7 @@ class VehicleModel implements VehicleModelInterface
         return $db->fetchAll();
     }
 
-    private function getOrCreateId($table, $column, $value)
+    private function getOrCreateId($table, $column, $value): false|string
     {
         $db = $this->pdo->prepare("SELECT id FROM $table WHERE $column = ?");
         $db->execute([$value]);

@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.1.3
--- https://www.phpmyadmin.net/
---
--- Хост: localhost
--- Время создания: Июн 19 2024 г., 16:59
--- Версия сервера: 5.7.37
--- Версия PHP: 7.4.28
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -18,13 +9,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `dev_vehicle`
---
-
 -- --------------------------------------------------------
 
---
--- Структура таблицы `brand`
 --
 
 DROP TABLE IF EXISTS `brand`;
@@ -37,10 +23,6 @@ CREATE TABLE IF NOT EXISTS `brand` (
 
 -- --------------------------------------------------------
 
---
--- Структура таблицы `country`
---
-
 DROP TABLE IF EXISTS `country`;
 CREATE TABLE IF NOT EXISTS `country` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -50,10 +32,6 @@ CREATE TABLE IF NOT EXISTS `country` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
-
---
--- Структура таблицы `fuel`
---
 
 DROP TABLE IF EXISTS `fuel`;
 CREATE TABLE IF NOT EXISTS `fuel` (
@@ -65,10 +43,6 @@ CREATE TABLE IF NOT EXISTS `fuel` (
 
 -- --------------------------------------------------------
 
---
--- Структура таблицы `gearbox`
---
-
 DROP TABLE IF EXISTS `gearbox`;
 CREATE TABLE IF NOT EXISTS `gearbox` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -78,10 +52,6 @@ CREATE TABLE IF NOT EXISTS `gearbox` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
-
---
--- Структура таблицы `vehicle`
---
 
 DROP TABLE IF EXISTS `vehicle`;
 CREATE TABLE IF NOT EXISTS `vehicle` (
@@ -107,13 +77,6 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   KEY `country_id` (`country_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `vehicle`
---
 ALTER TABLE `vehicle`
   ADD CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`),
   ADD CONSTRAINT `vehicle_ibfk_2` FOREIGN KEY (`gearbox_id`) REFERENCES `gearbox` (`id`),

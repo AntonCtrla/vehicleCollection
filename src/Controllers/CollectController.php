@@ -8,23 +8,22 @@ use VehicleCollection\Views\View;
 
 class CollectController
 {
-    private $view;
-    private $collectModel;
-    private $vehicleModel;
+    private View $view;
+    private collectModel $collectModel;
+    private vehicleModel $vehicleModel;
 
     public function __construct(View $view, CollectModel $collectModel, VehicleModel $vehicleModel)
     {
         $this->view = $view;
         $this->collectModel = $collectModel;
         $this->vehicleModel = $vehicleModel;
-
     }
 
     /**
      * @description retrieveing from Router
      * @return void
      */
-    public function showForm()
+    public function showForm(): void
     {
         $this->view->set('apiEndpoint', $_ENV['API_ENDPOINT']);
         $this->view->render();
@@ -34,7 +33,7 @@ class CollectController
      * @description for local AJAX. Parses car ids and echoes them to frontend.
      * @return void
      */
-    public function collectIDData()
+    public function collectIDData(): void
     {
         $message = '';
 
@@ -45,24 +44,16 @@ class CollectController
         $requested = count($parsedCarIds);
         $exists = 0;
 
-//        $message .= '?|?|?|?'.print_r($parsedCarIds,1).'<br>';
-
         foreach ($parsedCarIds as $k => $carId) {
             if ($this->vehicleModel->isVehicleExists($carId)) {
-//                $message .= '||||'.$k.'=>'.$carId.'<br>';
                 $exists++;
                 unset($parsedCarIds[$k]);
             }
         }
 
-//        $message .= '\/\\/\/\/'.print_r($parsedCarIds,1).'<br>';
-
         $message .= 'Requested <b>'.$requested.'</b> 
         | To retrieve: <b class="text-info">'.count($parsedCarIds). '</b>
         | Already exists: <b class="text-warning">'.$exists.'</b>';
-
-
-        // $this->collectModel->collect($parsedCarIds);
 
         echo json_encode(['message' => $message, 'carIds' => array_values($parsedCarIds)]);
     }
@@ -71,7 +62,7 @@ class CollectController
      * @description for local AJAX.Tries to parse it and return to frontend
      * @return void
      */
-    public function collectVehicleData() {
+    public function collectVehicleData():void {
         $message = '';
 
         $params = json_decode(file_get_contents('php://input'), true);

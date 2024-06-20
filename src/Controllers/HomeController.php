@@ -7,8 +7,8 @@ use VehicleCollection\Views\View;
 
 class HomeController
 {
-    private $view;
-    private $homeModel;
+    private View $view;
+    private HomeModel $homeModel;
 
     public function __construct(View $view, HomeModel $homeModel)
     {
@@ -16,13 +16,12 @@ class HomeController
         $this->homeModel = $homeModel;
     }
 
-    private function summ()
+    private function summ(): void
     {
         parse_str(file_get_contents('php://input'), $params);
 
         $this->view->set('title', 'Summ For Huge Numbers');
 
-//        $this->view->set('params', $params);
         $a = $params['a'] ?? 1;
         $b = $params['b'] ?? 2;
 
@@ -40,13 +39,12 @@ class HomeController
         $this->view->render();
     }
 
-    private function fibonacci() {
+    private function fibonacci(): void {
 
         parse_str(file_get_contents('php://input'), $params);
 
         $this->view->set('title','Fibonacci Retriever');
 
-//        $this->view->set('params', $params);
         $position = intval($params['position']??0);
         $this->view->set('position', $position);
         $this->view->set('result', $this->homeModel->fibonacciSeq($position));
@@ -86,7 +84,7 @@ class HomeController
         return $this->view->renderTemplateByName('blocks/powerbox');
     }
 
-    public function index()
+    public function index(): void
     {
         $this->view->set('message', 'Here is collected vehicle stats:');
 

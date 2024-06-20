@@ -10,11 +10,11 @@ use VehicleCollection\Views\View;
 
 class RouterController
 {
-    protected $routes = [];
+    protected array $routes = [];
 
-    private $homeController;
-    private $collectController;
-    private $tableController;
+    private HomeController $homeController;
+    private CollectController $collectController;
+    private TableController $tableController;
 
     public function __construct()
     {
@@ -34,17 +34,17 @@ class RouterController
         $this->tableController = new TableController($viewTable, $vehicleModel);
     }
 
-    public function get($path, $callback)
+    public function get($path, $callback): void
     {
         $this->routes['GET'][$path] = $callback;
     }
 
-    public function post($path, $callback)
+    public function post($path, $callback): void
     {
         $this->routes['POST'][$path] = $callback;
     }
 
-    public function resolve()
+    public function resolve(): void
     {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
         $path = rtrim($path, '/'); // Remove trailing slash
@@ -81,7 +81,7 @@ class RouterController
         }
     }
 
-    protected function callMethod($controller, $methodName)
+    protected function callMethod($controller, $methodName): void
     {
         try {
             $reflectionMethod = new \ReflectionMethod($controller, $methodName);
@@ -92,7 +92,7 @@ class RouterController
         }
     }
 
-    public function main()
+    public function main(): void
     {
         $this->get('/', ['homeController', 'index']);
 
